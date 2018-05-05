@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Farkle Scorekeeper Application
+    </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ scoreTotal }}</p>
+        <input v-model="score">
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                score: 'Enter Score Here'
+            }
+        });
+    </script>
+</body>
+
+</html>
