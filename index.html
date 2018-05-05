@@ -13,7 +13,7 @@
         <p>{{ scoreTotal }}</p>
         <ul>
             <li v-for="score in scores">
-                {{score}}
+                <input id="score{{score.id}}" type="number" v-model.number='score.number'>
             </li>
         </ul>
     </div>
@@ -22,16 +22,17 @@
             el: '#app',
             data: {
                 scores: [
-                    500,
-                    400,
-                    1500,
-                    1250
+                    {id:1,number:0},
+                    {id:2,number:0},
+                    {id:3,number:0},
+                    {id:4,number:0},
+                    {id:5,number:0},
                 ]
             },
             computed: {
                 scoreTotal() {
                     return this.scores.reduce((sum,score) => {
-                        return sum + score;
+                        return sum + score.number;
                     }, 0)
                 }
             }
