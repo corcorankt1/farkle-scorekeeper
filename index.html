@@ -11,13 +11,29 @@
 <body>
     <div id="app">
         <p>{{ scoreTotal }}</p>
-        <input v-model="score">
+        <ul>
+            <li v-for="score in scores">
+                {{score}}
+            </li>
+        </ul>
     </div>
     <script>
         let app = new Vue({
             el: '#app',
             data: {
-                score: 'Enter Score Here'
+                scores: [
+                    500,
+                    400,
+                    1500,
+                    1250
+                ]
+            },
+            computed: {
+                scoreTotal() {
+                    return this.scores.reduce((sum,score) => {
+                        return sum + score;
+                    }, 0)
+                }
             }
         });
     </script>
